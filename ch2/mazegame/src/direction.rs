@@ -1,0 +1,64 @@
+/// A simple enum to represent to compass directions
+///
+/// We need to derive() a few traits to allow the direction
+/// to be used in the HashMap, and to simplify ownership of
+/// variables of the Direction type. We'll explain all this
+/// soon - we just thought it wise to explain this derive()
+/// line in case you wonder what this might mean.
+#[derive(Clone, Copy, Hash, PartialEq, Eq)]
+pub enum Direction {
+    North,
+    South,
+    East,
+    West,
+}
+
+impl Direction {
+    /// Associated function to get a list of all possible directions
+    pub fn all() -> Vec<Direction> {
+        let mut directions = Vec::new();
+        directions.push(Direction::North);
+        directions.push(Direction::South);
+        directions.push(Direction::East);
+        directions.push(Direction::West);
+        directions
+
+        // Note: using the vec! macro, we could have done:
+        //
+        // vec![
+        //     Direction::North,
+        //     Direction::South,
+        //     Direction::East,
+        //     Direction::West
+        // ]
+        //
+        // as a slightly shorter way to build our Vec.
+        //
+        // It would be totally equivalent to the actual code we've written.
+    }
+
+    /// Method to convert a direction to a user-friendly form for display
+    ///
+    /// The output type, &'static str, we know to be borrowed text data (&str).
+    /// This 'static lifetime is a very special one: it's for data which exists
+    /// the whole duration the program is running, like these hard-coded names
+    /// we've written below.
+    pub fn name(self) -> &'static str {
+        match self {
+            Direction::North => "North",
+            Direction::South => "South",
+            Direction::East => "East",
+            Direction::West => "West",
+        }
+    }
+
+    /// Method to flip a direction: North <-> South, East <-> West
+    pub fn opposite(self) -> Direction {
+        match self {
+            Direction::North => Direction::South,
+            Direction::South => Direction::North,
+            Direction::East => Direction::West,
+            Direction::West => Direction::East,
+        }
+    }
+}
