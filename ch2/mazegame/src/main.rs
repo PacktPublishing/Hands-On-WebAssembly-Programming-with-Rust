@@ -55,7 +55,7 @@ fn ask_player_direction() -> Option<Direction> {
     // We're going to keep looping until the user gives us valid input.
     loop {
         // The question we will ask
-        let prompt = String::from("Which direction will you go (N/S/E/W, or Q to quit)?");
+        let prompt = "Which direction will you go (N/S/E/W, or Q to quit)?";
 
         // Request input from the program.
         let user_input = input::get_input_line(prompt);

@@ -12,7 +12,7 @@
 pub fn get_input_line(prompt: &str) -> String {
     use std::io::Write;
 
-    // Create a buffer to store the read contents
+    // Create a buffer to store the contents we will read
     let mut buf = String::new();
 
     // Note: the write!() macro, flush() function and read_line() function

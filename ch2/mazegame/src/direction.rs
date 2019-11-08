@@ -3,8 +3,8 @@
 /// We need to derive() a few traits to allow the direction
 /// to be used in the HashMap, and to simplify ownership of
 /// variables of the Direction type. We'll explain all this
-/// soon - we just thought it wise to explain this derive()
-/// line in case you wonder what this might mean.
+/// in Chapter 3 - we just thought it wise to mention this
+/// derive() line in case you wonder what it means.
 #[derive(Clone, Copy, Hash, PartialEq, Eq)]
 pub enum Direction {
     North,
@@ -39,10 +39,10 @@ impl Direction {
 
     /// Method to convert a direction to a user-friendly form for display
     ///
-    /// The output type, &'static str, we know to be borrowed text data (&str).
-    /// This 'static lifetime is a very special one: it's for data which exists
-    /// the whole duration the program is running, like these hard-coded names
-    /// we've written below.
+    /// The output type is &'static str, which we know to be borrowed text
+    /// data which exists for the 'static lifetime. As a reminder, the
+    /// 'static lifetime is the lifetime of data which exists for the
+    /// whole duration of the program (i.e. hard-coded data).
     pub fn name(self) -> &'static str {
         match self {
             Direction::North => "North",

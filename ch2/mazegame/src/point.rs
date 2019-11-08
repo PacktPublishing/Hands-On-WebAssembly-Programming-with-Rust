@@ -1,7 +1,7 @@
 /// A coordinate in the maze
 /// Deriving the Copy and Clone traits simplifies ownership of
-/// variables of the Point type - we'll explain why when we
-/// get onto the topic of ownership.
+/// variables of the Point type. We'll explain why when we go
+/// over these traits in chapter 3.
 #[derive(Copy, Clone)]
 pub struct Point {
     pub x: i64,
